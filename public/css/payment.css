@@ -24,6 +24,7 @@
     box-sizing: border-box;
     height: 50px;
     text-transform: uppercase;
+    padding: 10px;
 }
 
 .field-container {
@@ -59,7 +60,7 @@ input {
     height: 38px;
     position: absolute;
     right: 6px;
-    top: calc(50% - 17px);
+    top: calc(50% - 10px);
     width: 60px;
 }
 

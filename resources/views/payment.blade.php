@@ -3,10 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>Desafio PHP - Sênior - Perfect Pay</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/payment.css') }}" rel="stylesheet">
@@ -39,6 +41,24 @@
                                 <label for="pix">Pix</label>
                             </li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16">
+            <div class="md:grid-cols-12 gap-6 lg:gap-12 bg-center">
+                <div class="row info-profile">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" name="fullname" id="full_name" class="form-control" placeholder="Nome da completo">
+                            <span class="text-danger" id="fullnameError"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control" placeholder="CPF" type="text" name="cpf" id="cpf" required>
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control" placeholder="telefone" type="text" name="phone" id="phone" required>
                     </div>
                 </div>
             </div>
@@ -174,16 +194,18 @@
         </div>
         <div class="row mt-16">
             <div class="col-md-6 text-center">
-                <button type="button" id="send-payment" class="btn btn-outline-primary w-100" disabled>Efetuar pagamento</button>
+                <button type="button" id="send-payment" class="btn btn-outline-primary w-100" disabled><i class="fa fa-floppy-o" aria-hidden="true"></i> Efetuar pagamento</button>
             </div>
             <div class="col-md-6 text-center">
-                <button type="button" id="cancel-payment" class="btn btn-outline-secondary w-100" >Cancelar</button>
+                <button type="button" id="cancel-payment" class="btn btn-outline-secondary w-100" ><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>
             </div>
         </div>
     </div>
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{ asset('js/payment.js') }}"></script>

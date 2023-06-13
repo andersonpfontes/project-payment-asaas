@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+    $("#cpf").mask("999.999.999-99");
+    $("#phone").mask("(99) 99999-9999");
+
     //get value radio button for validation
     $("input[type='radio']").click(function(){
         var radioValue = $("input[name='payment_methods']:checked").val();
@@ -12,38 +15,36 @@ $(document).ready(function(){
         $('#send-payment').prop('disabled', false);
     });
 
-    $("#send-payment").click(function(){
-
-        var data = {};
-        data['']        = $("#").val();
-        data['']        = $("#").val();
-        data['']        = $("#").val();
-        data['']        = $("#").val();
+    $("#send-payment").click(function(event){
+        event.preventDefault();
+        let fullname = $("input[name=fullname]").val();
+        let _token   = $('meta[name="csrf-token"]').attr('content');
 
         $.ajax({
             type: "POST",
-            url: "caminho/controller",
-            dataType: "json",
-            data: JSON.stringify(data),
+            url: "/send-payment",
+            data:{
+                fullname:fullname,
+                _token: _token
+            },
             beforeSend: function () {
                 $("#msgTransaction").html("Estamos registrando as informações");
                 $(".alert-loader").addClass('show');
             },
-            success: function(msg, statusText, xhr){
-                var status = xhr.status;//200
-                var head = xhr.getAllResponseHeaders(); //Detalhe header info
-                if(status == "200"){
-
-                    $(".alert-loader").addClass('alert-success');
-                    $("#msgTransaction").html(msg['message']);
-                    setTimeout(function(){ $(".alert-loader").addClass('hide'); }, 3000);
-                    document.getElementById('new_customer').reset();
-                }
-                else {
-                    $(".alert-loader").addClass('alert-danger');
-                    $("#msgTransaction").html(msg['message']);
-                    setTimeout(function(){ $(".alert-loader").addClass('hide'); }, 3000);
-                }
+            success: function(response){
+                console.log(response);
+                // if(status == "200"){
+                //
+                //     $(".alert-loader").addClass('alert-success');
+                //     $("#msgTransaction").html(msg['message']);
+                //     setTimeout(function(){ $(".alert-loader").addClass('hide'); }, 3000);
+                //     document.getElementById('new_customer').reset();
+                // }
+                // else {
+                //     $(".alert-loader").addClass('alert-danger');
+                //     $("#msgTransaction").html(msg['message']);
+                //     setTimeout(function(){ $(".alert-loader").addClass('hide'); }, 3000);
+                // }
             }
         });
     });

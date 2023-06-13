@@ -4,6 +4,10 @@
 .grid{
     justify-content: center!important;
 }
+.info-profile{
+    justify-content: center;
+}
+
 .payment-methods {
     list-style: none;
     margin: 0;
