@@ -1,0 +1,80 @@
+.logo{
+    max-width: 40%!important;
+}
+.grid{
+    justify-content: center!important;
+}
+.payment-methods {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.payment-area{
+    display: none;
+}
+
+.payment-methods:after {
+    content: "";
+    clear: both;
+}
+
+.payment-method {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    float: left;
+    height: 70px;
+    position: relative;
+    width: 120px;
+}
+
+.payment-method + .payment-method {
+    margin-left: 25px;
+}
+
+.payment-method label {
+    background: #fff no-repeat center center;
+    bottom: 1px;
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    left: 1px;
+    position: absolute;
+    right: 1px;
+    text-indent: 100%;
+    top: 1px;
+    white-space: nowrap;
+}
+
+.pix label {
+    background-image: url(../img/general/pix-icon.png);
+    background-size: contain;
+}
+
+.credit_card label {
+    background-image: url(../img/general/credit-card-icon.png);
+    background-size: contain;
+}
+
+.bankslip label {
+    background-image: url(../img/general/boleto-icon.png);
+    background-size: contain;
+}
+.payment-methods input:focus + label {
+    outline: 2px dotted #21b4d0;
+}
+
+.payment-methods input:checked + label {
+    outline: 4px solid #21b4d0;
+}
+
+.payment-methods input:checked + label:after {
+    background: url(../img/general/checked-icon.svg);
+    bottom: -10px;
+    content: "";
+    display: inline-block;
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    width: 20px;
+}
