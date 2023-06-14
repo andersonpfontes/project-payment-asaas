@@ -47,18 +47,52 @@
         </div>
         <div class="mt-16">
             <div class="md:grid-cols-12 gap-6 lg:gap-12 bg-center">
-                <div class="row info-profile">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input type="text" name="fullname" id="full_name" class="form-control" placeholder="Nome da completo" value="JOHN DOE">
-                            <span class="text-danger" id="fullnameError"></span>
+                <div class="info-profile">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" name="fullname" id="full_name" class="form-control" placeholder="Nome da completo" value="JOHN DOE">
+                                <span class="text-danger" id="fullnameError"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="CPF" type="text" name="cpf" id="cpf">
+                                <span class="text-danger" id="cpfError"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="telefone" type="text" name="phone" id="phone" value="(96) 3086-5457">
+                                <span class="text-danger" id="phoneError"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Digite seu E-mail" type="text" name="email" id="email" value="marcelo.almeida@gmail.com">
+                                <span class="text-danger" id="emailError"></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <input class="form-control" placeholder="CPF" type="text" name="cpf" id="cpf">
-                    </div>
-                    <div class="col-md-3">
-                        <input class="form-control" placeholder="telefone" type="text" name="phone" id="phone" value="(96) 3086-5457">
+                    <div class="row mt-2">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" name="zipcode" id="zipcode" class="form-control" placeholder="Cep" value="">
+                                <span class="text-danger" id="zipcodeError"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Endereço" type="text" name="address" id="address" value="">
+                                <span class="text-danger" id="addressError"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Numero" type="text" name="addressNumber" id="addressNumber" value="">
+                                <span class="text-danger" id="addressNumberError"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

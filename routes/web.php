@@ -1,7 +1,6 @@
 <?php
 
-
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +18,6 @@ Route::get('/', function () {
     return view('payment');
 });
 
-Route::post('send-payment', [Controller::class, 'payment']);
+Route::post('send-payment', [PaymentController::class, 'sendPayment']);
 
 
