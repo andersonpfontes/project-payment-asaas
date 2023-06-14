@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa322c53454393ed775cfe4807d54a50",
+    "content-hash": "3eb907c2863574e81cd137e878d2206d",
     "packages": [
         {
             "name": "brick/math",
@@ -60,6 +60,55 @@
                 }
             ],
             "time": "2023-01-15T23:15:59+00:00"
+        },
+        {
+            "name": "codephix/asaas-sdk",
+            "version": "v2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codephix/asaas-sdk.git",
+                "reference": "37049fd012cdecd092b0ffce59826289780d2f33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codephix/asaas-sdk/zipball/37049fd012cdecd092b0ffce59826289780d2f33",
+                "reference": "37049fd012cdecd092b0ffce59826289780d2f33",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CodePhix\\Asaas\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Max Alex",
+                    "email": "contato@codephix.com",
+                    "homepage": "https://www.codephix.com"
+                }
+            ],
+            "description": "Asaas.com PHP API Wrapper",
+            "homepage": "http://www.codephix.com",
+            "keywords": [
+                "Asaas",
+                "Payment SaaS",
+                "api",
+                "boleto",
+                "credit card"
+            ],
+            "support": {
+                "issues": "https://github.com/codephix/asaas-sdk/issues",
+                "source": "https://github.com/codephix/asaas-sdk/tree/v2.0.5"
+            },
+            "time": "2022-03-15T03:32:52+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -7506,16 +7555,16 @@
         },
         {
             "name": "spatie/backtrace",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/backtrace.git",
-                "reference": "ec4dd16476b802dbdc6b4467f84032837e316b8c"
+                "reference": "47794d19e3215ace9e005a8f200cd7cc7be52572"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/backtrace/zipball/ec4dd16476b802dbdc6b4467f84032837e316b8c",
-                "reference": "ec4dd16476b802dbdc6b4467f84032837e316b8c",
+                "url": "https://api.github.com/repos/spatie/backtrace/zipball/47794d19e3215ace9e005a8f200cd7cc7be52572",
+                "reference": "47794d19e3215ace9e005a8f200cd7cc7be52572",
                 "shasum": ""
             },
             "require": {
@@ -7552,7 +7601,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/backtrace/tree/1.4.0"
+                "source": "https://github.com/spatie/backtrace/tree/1.4.1"
             },
             "funding": [
                 {
@@ -7564,7 +7613,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2023-03-04T08:57:24+00:00"
+            "time": "2023-06-13T14:35:04+00:00"
         },
         {
             "name": "spatie/flare-client-php",

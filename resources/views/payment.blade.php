@@ -50,15 +50,15 @@
                 <div class="row info-profile">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <input type="text" name="fullname" id="full_name" class="form-control" placeholder="Nome da completo">
+                            <input type="text" name="fullname" id="full_name" class="form-control" placeholder="Nome da completo" value="JOHN DOE">
                             <span class="text-danger" id="fullnameError"></span>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <input class="form-control" placeholder="CPF" type="text" name="cpf" id="cpf" required>
+                        <input class="form-control" placeholder="CPF" type="text" name="cpf" id="cpf">
                     </div>
                     <div class="col-md-3">
-                        <input class="form-control" placeholder="telefone" type="text" name="phone" id="phone" required>
+                        <input class="form-control" placeholder="telefone" type="text" name="phone" id="phone" value="(96) 3086-5457">
                     </div>
                 </div>
             </div>
@@ -194,7 +194,7 @@
         </div>
         <div class="row mt-16">
             <div class="col-md-6 text-center">
-                <button type="button" id="send-payment" class="btn btn-outline-primary w-100" disabled><i class="fa fa-floppy-o" aria-hidden="true"></i> Efetuar pagamento</button>
+                <button type="button" id="send-payment" class="btn btn-outline-primary w-100" disabled><i class="fa fa-floppy-o" aria-hidden="true"></i> Finalizar pagamento</button>
             </div>
             <div class="col-md-6 text-center">
                 <button type="button" id="cancel-payment" class="btn btn-outline-secondary w-100" ><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>
