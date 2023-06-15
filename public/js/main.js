@@ -23,7 +23,9 @@ $(document).ready(function(){
         let payment_methods = $("input[name='payment_methods']:checked").val();
         let fullname = $("#full_name").val();
         let cpf = $("#cpf").val();
+        let email = $("#email").val();
         let phone = $("#phone").val();
+        let birthday = $("#birthday").val();
         let _token   = $('meta[name="csrf-token"]').attr('content');
 
         $.ajax({
@@ -33,7 +35,9 @@ $(document).ready(function(){
                 payment_methods:payment_methods,
                 fullname:fullname,
                 cpf:cpf,
+                email:email,
                 phone:phone,
+                birthday:birthday,
                 _token: _token
             },
             beforeSend: function () {
@@ -42,6 +46,10 @@ $(document).ready(function(){
             },
             success: function(response){
                 console.log(response);
+                if(response) {
+                    $('.success').text(response.success);
+                    $("#ajaxform")[0].reset();
+                }
                 // if(status == "200"){
                 //
                 //     $(".alert-loader").addClass('alert-success');
@@ -54,6 +62,14 @@ $(document).ready(function(){
                 //     $("#msgTransaction").html(msg['message']);
                 //     setTimeout(function(){ $(".alert-loader").addClass('hide'); }, 3000);
                 // }
+            },
+            error: function(response) {
+                console.log(response);
+                $('#fullnameError').text(response.responseJSON.errors.fullname);
+                $('#emailError').text(response.responseJSON.errors.email);
+                $('#phoneError').text(response.responseJSON.errors.phone);
+                $('#cpfError').text(response.responseJSON.errors.cpf);
+                $('#birthdayError').text(response.responseJSON.errors.birthday);
             }
         });
     });

@@ -18,11 +18,13 @@ class PaymentController extends Controller
     public function sendPayment(PaymentRequest $request)
     {
 
+
         $payment_methods = $request->get('payment_methods');
         $fullname = $request->get('fullname');
         $cpf = $request->get('cpf');
         $phone = $request->get('phone');
         $email = $request->get('email');
+        $birthday = $request->get('birthday');
 
         $name = $request->get('name');
         $cardnumber = $request->get('cardnumber');

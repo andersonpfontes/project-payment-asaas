@@ -22,32 +22,37 @@ class PaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'dados.*.fullname' => 'string|min:5|max:255|required',
-            'dados.*.phone' => 'string|required',
-            'dados.*.birthday' => 'string|min:8|max:10|required',
-            'dados.*.cpf' => 'string|required',
+            'fullname' => 'string|min:5|max:255|required',
+            'phone' => 'string|required',
+            'birthday' => 'string|min:8|max:10|required',
+            'cpf' => 'string|required',
+            'email' => 'required|unique:email|max:255',
         ];
     }
 
     public function messages()
     {
         return [
-            'dados.*.fullname.min' => 'O nome deve conter de 5 a 255 caracteres',
-            'dados.*.fullname.required' => 'Preencha o campo nome',
-            'dados.*.fullname.string' => 'Preencha o campo nome',
+            'fullname.min' => 'O nome deve conter de 5 a 255 caracteres',
+            'fullname.required' => 'Preencha o campo nome',
+            'fullname.string' => 'Preencha o campo nome',
 
-            'dados.*.phone.min' => 'O RG deve conter de 8 a 12 caracteres',
-            'dados.*.phone.required' => 'Preencha o campo RG',
-            'dados.*.phone.string' => 'Preencha o campo Telefone',
+            'phone.min' => 'O RG deve conter de 8 a 12 caracteres',
+            'phone.required' => 'Preencha o campo RG',
+            'phone.string' => 'Preencha o campo Telefone',
 
-            'dados.*.birthday.min' => 'A data deve conter de 5 a 255 caracteres',
-            'dados.*.birthday.required' => 'Preencha o campo data de nascimento',
-            'dados.*.birthday.string' => 'Preencha o campo data de nascimento',
+            'birthday.min' => 'A data deve conter de 8 a 10 caracteres',
+            'birthday.required' => 'Preencha o campo data de nascimento',
+            'birthday.string' => 'Preencha o campo data de nascimento',
 
-            'dados.*.cpf.min' => 'O CPF deve conter 11 caracteres',
-            'dados.*.cpf.max' => 'O CPF deve conter 11 caracteres',
-            'dados.*.cpf.required' => 'Preencha o campo de CPF',
-            'dados.*.cpf.string' => 'Preencha o campo de CPF',
+            'cpf.min' => 'O CPF deve conter 11 caracteres',
+            'cpf.max' => 'O CPF deve conter 11 caracteres',
+            'cpf.required' => 'Preencha o campo de CPF',
+            'cpf.string' => 'Preencha o campo de CPF',
+
+            'email.unique' => 'Já existe um usuário com este endereço de e-mail.',
+            'email.required' => 'Preencha o campo email',
+            'email.string' => 'Preencha o campo email',
         ];
     }
 }
