@@ -46,7 +46,7 @@ class PaymentController extends Controller
         $cobrancas = $asaas->Cobranca()->getByCustomer('cus_000005333589');
 
 
-
+        // cobrança já gerada no Asaas para teste
         $id_cobranca = 'pay_4013704849945666';
 
         $Pix = $asaas->Pix()->create($id_cobranca);
