@@ -38,6 +38,7 @@ class PaymentController extends Controller
         // Retorna os dados do cliente de acordo com o Id
         $clienteById = $asaas->Cliente()->getById(env('CUSTOMER_ID_ASAAS'));
 
+        // Email já cadastrado no Asasas : marcelo.almeida@gmail.com
         // Retorna os dados do cliente de acordo com o Email
         $clientes = $asaas->Cliente()->getByEmail($email);
 
