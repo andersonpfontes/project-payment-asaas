@@ -59,8 +59,8 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="CPF" type="text" name="cpf" id="cpf">
-                                        <span class="text-danger" id="cpfError"></span>
+                                        <input class="form-control" placeholder="CPF" type="text" name="cpfCnpj" id="cpfCnpj">
+                                        <span class="text-danger" id="cpfCnpjError"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-3">

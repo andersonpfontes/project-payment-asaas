@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
     //chama a função e gera um cpf pra teste
-    $("#cpf").val(gerarCpf());
+    $("#cpfCnpj").val(gerarCpf());
 
-    $("#cpf").mask("999.999.999-99");
+    $("#cpfCnpj").mask("999.999.999-99");
     $("#phone").mask("(99) 99999-9999");
 
     //get value radio button for validation
@@ -22,7 +22,7 @@ $(document).ready(function(){
         event.preventDefault();
         let payment_methods = $("input[name='payment_methods']:checked").val();
         let fullname = $("#full_name").val();
-        let cpf = $("#cpf").val();
+        let cpfCnpj = $("#cpfCnpj").val();
         let email = $("#email").val();
         let phone = $("#phone").val();
         let birthday = $("#birthday").val();
@@ -34,7 +34,7 @@ $(document).ready(function(){
             data:{
                 payment_methods:payment_methods,
                 fullname:fullname,
-                cpf:cpf,
+                cpfCnpj:cpfCnpj,
                 email:email,
                 phone:phone,
                 birthday:birthday,
@@ -68,7 +68,7 @@ $(document).ready(function(){
                 $('#fullnameError').text(response.responseJSON.errors.fullname);
                 $('#emailError').text(response.responseJSON.errors.email);
                 $('#phoneError').text(response.responseJSON.errors.phone);
-                $('#cpfError').text(response.responseJSON.errors.cpf);
+                $('#cpfCnpjError').text(response.responseJSON.errors.cpfCnpj);
                 $('#birthdayError').text(response.responseJSON.errors.birthday);
             }
         });

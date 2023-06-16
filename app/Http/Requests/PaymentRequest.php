@@ -25,7 +25,7 @@ class PaymentRequest extends FormRequest
             'fullname' => 'string|min:5|max:255|required',
             'phone' => 'string|required',
             'birthday' => 'string|min:8|max:10|required',
-            'cpf' => 'string|required',
+            'cpfCnpj' => 'string|required',
             'email' => 'required|max:255',
         ];
     }
@@ -45,10 +45,10 @@ class PaymentRequest extends FormRequest
             'birthday.required' => 'Preencha o campo data de nascimento',
             'birthday.string' => 'Preencha o campo data de nascimento',
 
-            'cpf.min' => 'O CPF deve conter 11 caracteres',
-            'cpf.max' => 'O CPF deve conter 11 caracteres',
-            'cpf.required' => 'Preencha o campo de CPF',
-            'cpf.string' => 'Preencha o campo de CPF',
+            'cpfCnpj.min' => 'O CPF deve conter 11 caracteres',
+            'cpfCnpj.max' => 'O CPF deve conter 11 caracteres',
+            'cpfCnpj.required' => 'Preencha o campo de CPF',
+            'cpfCnpj.string' => 'Preencha o campo de CPF',
 
             'email.required' => 'Preencha o campo email',
             'email.string' => 'Preencha o campo email',

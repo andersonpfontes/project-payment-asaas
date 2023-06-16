@@ -22,7 +22,7 @@ class PaymentController extends Controller
 
         $payment_methods = $request->get('payment_methods');
         $fullname = $request->get('fullname');
-        $cpf = $request->get('cpf');
+        $cpfCnpj = $request->get('cpfCnpj');
         $phone = $request->get('phone');
         $email = $request->get('email');
         $birthday = $request->get('birthday');
@@ -33,8 +33,8 @@ class PaymentController extends Controller
         $securitycode = $request->get('securitycode');
 
 
-        //$id_cobranca = 'pay_4352003198148136';// hardcode para teste
-        //$Pix = $this->asaas->Pix()->create($id_cobranca);
+        $id_cobranca = 'pay_6791084053953106';// hardcode para teste
+        $Pix = $this->asaas->Pix()->create($id_cobranca);
         //dd($Pix);
 
 //        if($Pix->success){
@@ -43,6 +43,7 @@ class PaymentController extends Controller
 
         // Retorna os dados do cliente de acordo com o Id
         $clientes = $this->asaas->Cliente()->getById(env('CUSTOMER_ID_ASAAS'));// hardcode no env para teste
+        dd($clientes);
 
         //Se Cliente não existir com o email de cadastro, então ele cria um e segue o fluxo para o pagamento
         if(!$clientes){
