@@ -1,8 +1,14 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="#" target="_blank"><img src="https://blog.asaas.com/wp-content/uploads/2020/08/logo-Asaas_Azul.png" width="400" alt=""></a></p>
 
 ## Projeto de pagamento via boleto, pix e cartão de crédito, teste de empresa
 
 # Foi usado a seguinte SDK Asaas @CodePhix
+
+### 1 - Desenvolvido com a versao do laravel 10 compatível com PHP 8.1
+### 2 - Copiar e editar o arquivo .env.example para .env
+### 3 - Executar o composer install para instalar as dependencias
+### 4 - Executar o comando: php artisan serve
+
 
 SDK não-oficial de integração á API do serviço www.asaas.com
 
