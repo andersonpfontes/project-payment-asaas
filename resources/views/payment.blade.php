@@ -79,7 +79,7 @@
                             <div class="row mt-2">
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <input type="date" name="birthday" id="birthday" class="form-control" placeholder="Nascimento" value="">
+                                        <input type="date" name="birthday" id="birthday" class="form-control" placeholder="Nascimento" value="2000-10-22">
                                         <span class="text-danger" id="birthdayError"></span>
                                     </div>
                                 </div>

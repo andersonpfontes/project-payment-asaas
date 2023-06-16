@@ -32,9 +32,32 @@ class PaymentController extends Controller
         $expirationdate= $request->get('expirationdate');
         $securitycode = $request->get('securitycode');
 
+        /*$curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://sandbox.asaas.com/api/v3/payments?customer=cus_000005333589',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'access_token: $aact_YTU5YTE0M2M2N2I4MTliNzk0YTI5N2U5MzdjNWZmNDQ6OjAwMDAwMDAwMDAwMDAwNTcwNDU6OiRhYWNoXzYyMDc0YTZmLTVjZjktNDYwYi05ZmQ3LTI1ZTEzYWJiNDEwMA==',
+                'Cookie: AWSALB=C/H/Hx4lSQiqNIYYIBu2ijncbELFhX/F0d4JvE2/1q13YYifkHEpcljfKN9SwsI4oEJCoyIMCnAKQOusPMq/g9oMRoKVM4a16eb3VgNXf3WhuR9cHn1C68NOZbFo; AWSALBCORS=C/H/Hx4lSQiqNIYYIBu2ijncbELFhX/F0d4JvE2/1q13YYifkHEpcljfKN9SwsI4oEJCoyIMCnAKQOusPMq/g9oMRoKVM4a16eb3VgNXf3WhuR9cHn1C68NOZbFo; AWSALBTG=+4sVehTi8kgZzFayEuEKFV7CAbUW3f9lhZcwwD/4t+NwTFTDNTsNekUYA/XF1OszuHPHWGHBDOGJnNNPvlQHqsR+GSOZYDVDIz8ZyYpHwK9VvP8ECBR/ZcRC/fBvAVH8Yehe0FP+K9ErRoqJuYXHUVyWo38YLEJ7qDwd9NotJJgx; AWSALBTGCORS=+4sVehTi8kgZzFayEuEKFV7CAbUW3f9lhZcwwD/4t+NwTFTDNTsNekUYA/XF1OszuHPHWGHBDOGJnNNPvlQHqsR+GSOZYDVDIz8ZyYpHwK9VvP8ECBR/ZcRC/fBvAVH8Yehe0FP+K9ErRoqJuYXHUVyWo38YLEJ7qDwd9NotJJgx; JSESSIONID=4EB33D6A7761CF4FBD776D8DE22EEA44756DE70C9956A42BC13E7137818EA406C1960E0A9FCF3B038334E522B4DE9CA2F6AE43C7CF07A10983D0AAB7D35D78C8.n1'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        dd$response);*/
+
 
         $id_cobranca = 'pay_6791084053953106';// hardcode para teste
-        $Pix = $this->asaas->Pix()->create($id_cobranca);
+        //$Pix = $this->asaas->Pix()->create($id_cobranca);
         //dd($Pix);
 
 //        if($Pix->success){
