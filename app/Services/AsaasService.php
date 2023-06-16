@@ -8,7 +8,7 @@ class AsaasService
     /**
      * Cadastrar Cliente
      */
-    public function createClient($data)
+    public function payloadCreateClient($data)
     {
         $data = json_encode([
             "externalReference" => $data['id'],
@@ -24,22 +24,22 @@ class AsaasService
             "province"          => $data['province'],
         ]);
 
-        // create curl request
+        return $data;
     }
 
     /**
      * Pagamento por PIX
      */
-    public function paymentPix($data)
+    public function payloadPix($data)
     {
-        $data = json_encode([
+        /*$data = json_encode([
             "externalReference" => $data['id'],
             "customer"          => $data['customer'],
             "billingType"       => $data['billing_type'],
             "dueDate"           => $data['due_date'],
             "value"             => $data['value'],
             "description"       => $data['description'],
-        ]);
+        ]);*/
 
         // create curl request
     }
@@ -47,9 +47,9 @@ class AsaasService
     /**
      * Pagamento por BOLETO
      */
-    public function paymentBoleto($data)
+    public function payloadBoleto($data)
     {
-        $data = json_encode([
+        /*$data = json_encode([
             "externalReference" => $data['id'],
             "customer"          => $data['customer'],
             "billingType"       => $data['billing_type'],
@@ -66,7 +66,7 @@ class AsaasService
             "interest" => [
                 "value" => 2
             ],
-        ]);
+        ]);*/
 
         // create curl request
     }
@@ -74,9 +74,9 @@ class AsaasService
     /**
      * Pagamento por CARTÃO DE CRÉDITO
      */
-    public function paymentCreditCard($data)
+    public function payloadCreditCard($data)
     {
-        $data = json_encode($data);
+       // $data = json_encode($data);
 
         // create curl request
     }

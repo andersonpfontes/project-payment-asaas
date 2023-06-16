@@ -26,7 +26,7 @@ class PaymentRequest extends FormRequest
             'phone' => 'string|required',
             'birthday' => 'string|min:8|max:10|required',
             'cpf' => 'string|required',
-            'email' => 'required|unique:email|max:255',
+            'email' => 'required|max:255',
         ];
     }
 
@@ -50,7 +50,6 @@ class PaymentRequest extends FormRequest
             'cpf.required' => 'Preencha o campo de CPF',
             'cpf.string' => 'Preencha o campo de CPF',
 
-            'email.unique' => 'Já existe um usuário com este endereço de e-mail.',
             'email.required' => 'Preencha o campo email',
             'email.string' => 'Preencha o campo email',
         ];
