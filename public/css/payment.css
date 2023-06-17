@@ -7,6 +7,9 @@
 .imgPix{
     display: initial!important;
 }
+.copyText{
+    cursor: pointer;
+}
 
 .form-container .field-container:first-of-type {
     grid-area: name;

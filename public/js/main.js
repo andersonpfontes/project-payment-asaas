@@ -17,6 +17,15 @@ $(document).ready(function(){
 
         $('#send-payment').prop('disabled', false);
     });
+    $(".copyText").click(function(){
+        // Get the text field
+        var copyText = document.getElementById("copyTextContent");
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+    });
 
     $("#send-payment").click(function(event){
         event.preventDefault();
@@ -69,7 +78,9 @@ $(document).ready(function(){
                 if(payment_methods === "bankslip"){
                     $("#result").append('<a href="'+response.data.bankSlipUrl+'" target="_blank" class="btn btn-outline-primary"><i class="fa fa-file" aria-hidden="true"></i> Visualizar Boleto</a>');
                 }else if(payment_methods === "pix"){
-                    $("#result").append(response.data.encodedImage + '<br><a href="'+response.data.invoiceUrl+'" target="_blank" class="btn btn-outline-primary"><i class="fa fa-file" aria-hidden="true"></i> Problema com QRCODE? Clique AQUI</a>');
+                    $("#result").append(response.data.encodedImage + '<div id="copyTextContent" class="text-break">'+response.data.pixCopiaCola+' <i class="fa fa-files-o copyText" aria-hidden="true"></i></div>' +
+                                        '<br><a href="'+response.data.invoiceUrl+'" target="_blank" class="btn btn-outline-primary"><i class="fa fa-file" aria-hidden="true"></i> Problema com QRCODE? Clique AQUI</a>' +
+                        '');
                 }else{
                     $("#result").append('<p><h3>'+response.data.status+'</h3></p>' +
                                         '<a href="'+response.data.transactionReceiptUrl+'" target="_blank" class="btn btn-outline-primary"><i class="fa fa-file" aria-hidden="true"></i> Comprovante de pagamento</a> ' +

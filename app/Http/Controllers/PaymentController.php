@@ -74,6 +74,7 @@ class PaymentController extends Controller
                 $result = [
                     "encodedImage" => '<img class="imgPix" src="data:image/jpeg;base64, '.$Pix->encodedImage.'" />',
                     "invoiceUrl" => $cobranca->invoiceUrl,
+                    "pixCopiaCola" => $Pix->payload,
                     "title"=>"QR CODE PIX GERADO COM SUCESSO!"
                 ];
             }
