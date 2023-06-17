@@ -32,15 +32,6 @@ class PaymentController extends Controller
         $request['addressComplement'] = null;
         $request['mobilePhone'] = $request->get('phone');
 
-        $creditCard = $request->get('creditCard');
-
-        $var = explode("/",$creditCard['expirationdate']);
-
-        $request['holderName'] = $creditCard['holderName'];
-        $request['number'] = $creditCard['number'];
-        $request['expiryMonth'] = $var[0];
-        $request['expiryYear'] = $var[1];
-        $request['ccv'] = $creditCard['ccv'];
 
         $id_cobranca = 'pay_0207267476805289';// hardcode para teste
 
@@ -81,12 +72,22 @@ class PaymentController extends Controller
             $cobranca = $this->asaas->Cobranca()->create($payload);
             if($Pix->success){
                 $result = [
-                    "encodedImage" => '<img src="data:image/jpeg;base64, '.$Pix->encodedImage.'" />',
+                    "encodedImage" => '<img class="imgPix" src="data:image/jpeg;base64, '.$Pix->encodedImage.'" />',
                     "invoiceUrl" => $cobranca->invoiceUrl,
                     "title"=>"QR CODE PIX GERADO COM SUCESSO!"
                 ];
             }
         } else {
+
+            $creditCard = $request->get('creditCard');
+            $var = explode("/", $creditCard['expirationdate']);
+
+            $request['holderName'] = $creditCard['holderName'];
+            $request['number'] = $creditCard['number'];
+            $request['expiryMonth'] = $var[0];
+            $request['expiryYear'] = $var[1];
+            $request['ccv'] = $creditCard['ccv'];
+
             $request['billingType'] = "CREDIT_CARD";
             $payload = $this->asaasService->payloadCreditCard($request);
             // Insere uma nova cobrança / cobrança parcelada / cobrança split

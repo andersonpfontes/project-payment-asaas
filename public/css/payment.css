@@ -4,6 +4,9 @@
 .modal-body{
     text-align: center;
 }
+.imgPix{
+    display: initial!important;
+}
 
 .form-container .field-container:first-of-type {
     grid-area: name;

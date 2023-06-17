@@ -20,6 +20,7 @@ $(document).ready(function(){
 
     $("#send-payment").click(function(event){
         event.preventDefault();
+        $("#send-payment").prepend('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> ');
         let payment_methods = $("input[name='payment_methods']:checked").val();
         let fullname = $("#full_name").val();
         let cpfCnpj = $("#cpfCnpj").val();
@@ -57,24 +58,24 @@ $(document).ready(function(){
                 _token: _token
             },
             beforeSend: function () {
-                $("#msgTransaction").html("Estamos registrando as informações");
-                $(".alert-loader").addClass('show');
+                $("#modalResult").modal("show");
             },
             success: function(response){
                 console.log(response);
-                    $('#titleModal').text(response.data.title);
-                    // $("#ajaxform")[0].reset();
-                    if(payment_methods === "bankslip"){
-                        $("#result").append('<a href="'+response.data.bankSlipUrl+'" target="_blank" class="btn btn-outline-primary"><i class="fa fa-file" aria-hidden="true"></i> Visualizar Boleto</a>');
-                    }else if(payment_methods === "pix"){
-                        $("#result").append(response.data.encodedImage + '<br><a href="'+response.data.invoiceUrl+'" target="_blank" class="btn btn-outline-primary"><i class="fa fa-file" aria-hidden="true"></i> Problema com QRCODE? Clique AQUI</a>');
-                    }else{
-                        $("#result").append('<p><h3>'+response.data.status+'</h3></p>' +
-                                            '<a href="'+response.data.transactionReceiptUrl+'" target="_blank" class="btn btn-outline-primary"><i class="fa fa-file" aria-hidden="true"></i> Comprovante de pagamento</a> ' +
-                                            '<a href="'+response.data.invoiceUrl+'" target="_blank" class="btn btn-outline-success"><i class="fa fa-file-o" aria-hidden="true"></i> Detalhes do pagamento</a>'
-                        );
-                    }
-                    $("#modalResult").modal("show");
+                $("#result").text("");
+                $("#send-payment .spinner-grow").remove();
+                $('#titleModal').text(response.data.title);
+                // $("#ajaxform")[0].reset();
+                if(payment_methods === "bankslip"){
+                    $("#result").append('<a href="'+response.data.bankSlipUrl+'" target="_blank" class="btn btn-outline-primary"><i class="fa fa-file" aria-hidden="true"></i> Visualizar Boleto</a>');
+                }else if(payment_methods === "pix"){
+                    $("#result").append(response.data.encodedImage + '<br><a href="'+response.data.invoiceUrl+'" target="_blank" class="btn btn-outline-primary"><i class="fa fa-file" aria-hidden="true"></i> Problema com QRCODE? Clique AQUI</a>');
+                }else{
+                    $("#result").append('<p><h3>'+response.data.status+'</h3></p>' +
+                                        '<a href="'+response.data.transactionReceiptUrl+'" target="_blank" class="btn btn-outline-primary"><i class="fa fa-file" aria-hidden="true"></i> Comprovante de pagamento</a> ' +
+                                        '<a href="'+response.data.invoiceUrl+'" target="_blank" class="btn btn-outline-success"><i class="fa fa-file-o" aria-hidden="true"></i> Detalhes do pagamento</a>'
+                    );
+                }
             },
             error: function(response) {
                 console.log(response);
