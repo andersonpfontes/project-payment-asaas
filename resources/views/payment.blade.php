@@ -85,19 +85,19 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <input type="text" name="zipcode" id="zipcode" class="form-control" placeholder="Cep" value="">
-                                        <span class="text-danger" id="zipcodeError"></span>
+                                        <input type="text" name="postalCode" id="postalCode" class="form-control" placeholder="Cep" value="89223-005">
+                                        <span class="text-danger" id="postalCodeError"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Endereço" type="text" name="address" id="address" value="">
+                                        <input class="form-control" placeholder="Endereço" type="text" name="address" id="address" value="Rua alvaro de abreu">
                                         <span class="text-danger" id="addressError"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Numero" type="text" name="addressNumber" id="addressNumber" value="">
+                                        <input class="form-control" placeholder="Numero" type="text" name="addressNumber" id="addressNumber" value="277">
                                         <span class="text-danger" id="addressNumberError"></span>
                                     </div>
                                 </div>
@@ -212,7 +212,7 @@
                                 <div class="form-container">
                                     <div class="field-container">
                                         <label for="name">Name</label>
-                                        <input id="name" maxlength="20" type="text">
+                                        <input id="name" name="name" maxlength="20" type="text">
                                     </div>
                                     <div class="field-container">
                                         <label for="cardnumber">Número do Cartão</label><span id="generatecard">Gerar aleatório</span>
@@ -234,6 +234,18 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="mt-16 coast-area">
+                    <hr>
+                    <div class="row mt-2">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" name="value" id="value" class="form-control" placeholder="Digitel o valor" value="1000.00">
+                                <span class="text-primary">Ex: 100.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row mt-16">
                     <div class="col-md-6 text-center">
                         <button type="button" id="send-payment" class="btn btn-outline-primary w-100" disabled><i class="fa fa-floppy-o" aria-hidden="true"></i> Finalizar pagamento</button>
@@ -244,6 +256,26 @@
                 </div>
             </div>
         </form>
+    </div>
+    <div class="modal fade" id="modalResult" tabindex="-1" role="dialog" aria-labelledby="titleModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleModal"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12" id="result"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

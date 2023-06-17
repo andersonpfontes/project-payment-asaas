@@ -10,9 +10,9 @@ class AsaasService
      */
     public function payloadCreateClient($data)
     {
-        $data = json_encode([
-            "externalReference" => $data['id'],
-            "cpfCnpj"           => $data['cpf_cnpj'],
+        $data = [
+            "externalReference" => $data['externalReference'],
+            "cpfCnpj"           => $data['cpfCnpj'],
             "name"              => $data['name'],
             "email"             => $data['email'],
             "phone"             => $data['phone'],
@@ -22,7 +22,7 @@ class AsaasService
             "addressNumber"     => $data['address_number'],
             "complement"        => $data['complement'],
             "province"          => $data['province'],
-        ]);
+        ];
 
         return $data;
     }
@@ -32,16 +32,16 @@ class AsaasService
      */
     public function payloadPix($data)
     {
-        /*$data = json_encode([
-            "externalReference" => $data['id'],
+        $data = [
+            "externalReference" => $data['externalReference'],
             "customer"          => $data['customer'],
-            "billingType"       => $data['billing_type'],
-            "dueDate"           => $data['due_date'],
+            "billingType"       => $data['billingType'],
+            "dueDate"           => $data['dueDate'],
             "value"             => $data['value'],
             "description"       => $data['description'],
-        ]);*/
+        ];
 
-        // create curl request
+        return $data;
     }
 
     /**
@@ -49,11 +49,11 @@ class AsaasService
      */
     public function payloadBoleto($data)
     {
-        /*$data = json_encode([
-            "externalReference" => $data['id'],
+        $data = [
+            "externalReference" => $data['externalReference'],
             "customer"          => $data['customer'],
-            "billingType"       => $data['billing_type'],
-            "dueDate"           => $data['due_date'],
+            "billingType"       => $data['billingType'],
+            "dueDate"           => $data['dueDate'],
             "value"             => $data['value'],
             "description"       => $data['description'],
             "discount" => [
@@ -66,9 +66,10 @@ class AsaasService
             "interest" => [
                 "value" => 2
             ],
-        ]);*/
+            "postalService" => false
+        ];
 
-        // create curl request
+        return $data;
     }
 
     /**
@@ -76,9 +77,34 @@ class AsaasService
      */
     public function payloadCreditCard($data)
     {
-       // $data = json_encode($data);
+        $data = [
+              "customer" => $data['customer'],
+              "billingType" => $data['billingType'],
+              "dueDate" => $data['dueDate'],
+              "value" => $data['value'],
+              "description" => $data['description'],
+              "externalReference" => $data['externalReference'],
+              "creditCard" => [
+                    "holderName" => $data['holderName'],
+                    "number" => $data['number'],
+                    "expiryMonth" => $data['expiryMonth'],
+                    "expiryYear" => $data['expiryYear'],
+                    "ccv" => $data['ccv']
+              ],
+              "creditCardHolderInfo" => [
+                    "name" => $data['fullname'],
+                    "email" => $data['email'],
+                    "cpfCnpj" => $data['cpfCnpj'],
+                    "postalCode" => $data['postalCode'],
+                    "addressNumber" => $data['addressNumber'],
+                    "addressComplement" => null,
+                    "phone" => $data['phone'],
+                    "mobilePhone" => $data['phone']
+              ],
+              "creditCardToken" => "76496073-536f-4835-80db-c45d00f33695"
+        ];
 
-        // create curl request
+        return $data;
     }
 
 }

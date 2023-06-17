@@ -26,11 +26,18 @@ $(document).ready(function(){
         let email = $("#email").val();
         let phone = $("#phone").val();
         let birthday = $("#birthday").val();
+        let value = $("#value").val();
+        let addressNumber = $("#addressNumber").val();
+        let postalCode = $("#postalCode").val();
+        let holderName = $("#name").val();
+        let number = $("#cardnumber").val();
+        let expirationdate = $("#expirationdate").val();
+        let ccv = $("#securitycode").val();
         let _token   = $('meta[name="csrf-token"]').attr('content');
 
         $.ajax({
             type: "POST",
-            url: "/send-payment",
+            url: "send-payment",
             data:{
                 payment_methods:payment_methods,
                 fullname:fullname,
@@ -38,6 +45,15 @@ $(document).ready(function(){
                 email:email,
                 phone:phone,
                 birthday:birthday,
+                value:value,
+                addressNumber:addressNumber,
+                postalCode:postalCode,
+                creditCard:{
+                    holderName: holderName,
+                    number: number,
+                    expirationdate: expirationdate,
+                    ccv: ccv
+                },
                 _token: _token
             },
             beforeSend: function () {
@@ -46,22 +62,19 @@ $(document).ready(function(){
             },
             success: function(response){
                 console.log(response);
-                if(response) {
-                    $('.success').text(response.success);
-                    $("#ajaxform")[0].reset();
-                }
-                // if(status == "200"){
-                //
-                //     $(".alert-loader").addClass('alert-success');
-                //     $("#msgTransaction").html(msg['message']);
-                //     setTimeout(function(){ $(".alert-loader").addClass('hide'); }, 3000);
-                //     document.getElementById('new_customer').reset();
-                // }
-                // else {
-                //     $(".alert-loader").addClass('alert-danger');
-                //     $("#msgTransaction").html(msg['message']);
-                //     setTimeout(function(){ $(".alert-loader").addClass('hide'); }, 3000);
-                // }
+                    $('#titleModal').text(response.data.title);
+                    // $("#ajaxform")[0].reset();
+                    if(payment_methods === "bankslip"){
+                        $("#result").append('<a href="'+response.data.bankSlipUrl+'" target="_blank" class="btn btn-outline-primary"><i class="fa fa-file" aria-hidden="true"></i> Visualizar Boleto</a>');
+                    }else if(payment_methods === "pix"){
+                        $("#result").append(response.data.encodedImage + '<br><a href="'+response.data.invoiceUrl+'" target="_blank" class="btn btn-outline-primary"><i class="fa fa-file" aria-hidden="true"></i> Problema com QRCODE? Clique AQUI</a>');
+                    }else{
+                        $("#result").append('<p><h3>'+response.data.status+'</h3></p>' +
+                                            '<a href="'+response.data.transactionReceiptUrl+'" target="_blank" class="btn btn-outline-primary"><i class="fa fa-file" aria-hidden="true"></i> Comprovante de pagamento</a> ' +
+                                            '<a href="'+response.data.invoiceUrl+'" target="_blank" class="btn btn-outline-success"><i class="fa fa-file-o" aria-hidden="true"></i> Detalhes do pagamento</a>'
+                        );
+                    }
+                    $("#modalResult").modal("show");
             },
             error: function(response) {
                 console.log(response);

@@ -1,7 +1,9 @@
 .payment-area{
     margin-top: 6rem;
 }
-
+.modal-body{
+    text-align: center;
+}
 
 .form-container .field-container:first-of-type {
     grid-area: name;
